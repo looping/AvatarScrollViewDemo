@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E884B4A19FBA4B40090B7B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E884B4919FBA4B40090B7B1 /* main.m */; };
+		6E884B4D19FBA4B40090B7B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E884B4C19FBA4B40090B7B1 /* AppDelegate.m */; };
+		6E884B5019FBA4B40090B7B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E884B4F19FBA4B40090B7B1 /* ViewController.m */; };
+		6E884B5319FBA4B40090B7B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E884B5119FBA4B40090B7B1 /* Main.storyboard */; };
+		6E884B5519FBA4B40090B7B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E884B5419FBA4B40090B7B1 /* Images.xcassets */; };
+		6E884B5819FBA4B40090B7B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E884B5619FBA4B40090B7B1 /* LaunchScreen.xib */; };
+		6E884B6419FBA4B40090B7B1 /* AvatarScrollViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E884B6319FBA4B40090B7B1 /* AvatarScrollViewDemoTests.m */; };
+		6E884B6E19FBA76B0090B7B1 /* avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E884B6D19FBA76B0090B7B1 /* avatar@2x.png */; };
+		C3B25BC5431AAB0AF2DF8308 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 581BB0C880F82A7BBAC16A28 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E884B5E19FBA4B40090B7B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E884B3C19FBA4B40090B7B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E884B4319FBA4B40090B7B1;
+			remoteInfo = AvatarScrollViewDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		581BB0C880F82A7BBAC16A28 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E884B4419FBA4B40090B7B1 /* AvatarScrollViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvatarScrollViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E884B4819FBA4B40090B7B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E884B4919FBA4B40090B7B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E884B4B19FBA4B40090B7B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6E884B4C19FBA4B40090B7B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6E884B4E19FBA4B40090B7B1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6E884B4F19FBA4B40090B7B1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6E884B5219FBA4B40090B7B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6E884B5419FBA4B40090B7B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6E884B5719FBA4B40090B7B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6E884B5D19FBA4B40090B7B1 /* AvatarScrollViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvatarScrollViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E884B6219FBA4B40090B7B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E884B6319FBA4B40090B7B1 /* AvatarScrollViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvatarScrollViewDemoTests.m; sourceTree = "<group>"; };
+		6E884B6D19FBA76B0090B7B1 /* avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar@2x.png"; sourceTree = "<group>"; };
+		AA10C6D211EBFECA4CB2A107 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C5DBEF81AD339AF84F6F8BFC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E884B4119FBA4B40090B7B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B25BC5431AAB0AF2DF8308 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E884B5A19FBA4B40090B7B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E884B3B19FBA4B40090B7B1 = {
+			isa = PBXGroup;
+			children = (
+				6E884B4619FBA4B40090B7B1 /* AvatarScrollViewDemo */,
+				6E884B6019FBA4B40090B7B1 /* AvatarScrollViewDemoTests */,
+				6E884B4519FBA4B40090B7B1 /* Products */,
+				F517AE0149989707565A4CF2 /* Pods */,
+				8FDEF86428F0C617915BF446 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6E884B4519FBA4B40090B7B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E884B4419FBA4B40090B7B1 /* AvatarScrollViewDemo.app */,
+				6E884B5D19FBA4B40090B7B1 /* AvatarScrollViewDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E884B4619FBA4B40090B7B1 /* AvatarScrollViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6E884B6D19FBA76B0090B7B1 /* avatar@2x.png */,
+				6E884B4B19FBA4B40090B7B1 /* AppDelegate.h */,
+				6E884B4C19FBA4B40090B7B1 /* AppDelegate.m */,
+				6E884B4E19FBA4B40090B7B1 /* ViewController.h */,
+				6E884B4F19FBA4B40090B7B1 /* ViewController.m */,
+				6E884B5119FBA4B40090B7B1 /* Main.storyboard */,
+				6E884B5419FBA4B40090B7B1 /* Images.xcassets */,
+				6E884B5619FBA4B40090B7B1 /* LaunchScreen.xib */,
+				6E884B4719FBA4B40090B7B1 /* Supporting Files */,
+			);
+			path = AvatarScrollViewDemo;
+			sourceTree = "<group>";
+		};
+		6E884B4719FBA4B40090B7B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E884B4819FBA4B40090B7B1 /* Info.plist */,
+				6E884B4919FBA4B40090B7B1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E884B6019FBA4B40090B7B1 /* AvatarScrollViewDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E884B6319FBA4B40090B7B1 /* AvatarScrollViewDemoTests.m */,
+				6E884B6119FBA4B40090B7B1 /* Supporting Files */,
+			);
+			path = AvatarScrollViewDemoTests;
+			sourceTree = "<group>";
+		};
+		6E884B6119FBA4B40090B7B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E884B6219FBA4B40090B7B1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8FDEF86428F0C617915BF446 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				581BB0C880F82A7BBAC16A28 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F517AE0149989707565A4CF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA10C6D211EBFECA4CB2A107 /* Pods.debug.xcconfig */,
+				C5DBEF81AD339AF84F6F8BFC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E884B4319FBA4B40090B7B1 /* AvatarScrollViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E884B6719FBA4B40090B7B1 /* Build configuration list for PBXNativeTarget "AvatarScrollViewDemo" */;
+			buildPhases = (
+				18EE344E295CE9264B9F4214 /* Check Pods Manifest.lock */,
+				6E884B4019FBA4B40090B7B1 /* Sources */,
+				6E884B4119FBA4B40090B7B1 /* Frameworks */,
+				6E884B4219FBA4B40090B7B1 /* Resources */,
+				542CCBBE1C8F19FA2BEA278E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AvatarScrollViewDemo;
+			productName = AvatarScrollViewDemo;
+			productReference = 6E884B4419FBA4B40090B7B1 /* AvatarScrollViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E884B5C19FBA4B40090B7B1 /* AvatarScrollViewDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E884B6A19FBA4B40090B7B1 /* Build configuration list for PBXNativeTarget "AvatarScrollViewDemoTests" */;
+			buildPhases = (
+				6E884B5919FBA4B40090B7B1 /* Sources */,
+				6E884B5A19FBA4B40090B7B1 /* Frameworks */,
+				6E884B5B19FBA4B40090B7B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E884B5F19FBA4B40090B7B1 /* PBXTargetDependency */,
+			);
+			name = AvatarScrollViewDemoTests;
+			productName = AvatarScrollViewDemoTests;
+			productReference = 6E884B5D19FBA4B40090B7B1 /* AvatarScrollViewDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E884B3C19FBA4B40090B7B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = RidgeCorn;
+				TargetAttributes = {
+					6E884B4319FBA4B40090B7B1 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					6E884B5C19FBA4B40090B7B1 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 6E884B4319FBA4B40090B7B1;
+					};
+				};
+			};
+			buildConfigurationList = 6E884B3F19FBA4B40090B7B1 /* Build configuration list for PBXProject "AvatarScrollViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E884B3B19FBA4B40090B7B1;
+			productRefGroup = 6E884B4519FBA4B40090B7B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E884B4319FBA4B40090B7B1 /* AvatarScrollViewDemo */,
+				6E884B5C19FBA4B40090B7B1 /* AvatarScrollViewDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E884B4219FBA4B40090B7B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E884B5319FBA4B40090B7B1 /* Main.storyboard in Resources */,
+				6E884B6E19FBA76B0090B7B1 /* avatar@2x.png in Resources */,
+				6E884B5819FBA4B40090B7B1 /* LaunchScreen.xib in Resources */,
+				6E884B5519FBA4B40090B7B1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E884B5B19FBA4B40090B7B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18EE344E295CE9264B9F4214 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		542CCBBE1C8F19FA2BEA278E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E884B4019FBA4B40090B7B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E884B5019FBA4B40090B7B1 /* ViewController.m in Sources */,
+				6E884B4D19FBA4B40090B7B1 /* AppDelegate.m in Sources */,
+				6E884B4A19FBA4B40090B7B1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E884B5919FBA4B40090B7B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E884B6419FBA4B40090B7B1 /* AvatarScrollViewDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E884B5F19FBA4B40090B7B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E884B4319FBA4B40090B7B1 /* AvatarScrollViewDemo */;
+			targetProxy = 6E884B5E19FBA4B40090B7B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E884B5119FBA4B40090B7B1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E884B5219FBA4B40090B7B1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6E884B5619FBA4B40090B7B1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E884B5719FBA4B40090B7B1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E884B6519FBA4B40090B7B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6E884B6619FBA4B40090B7B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E884B6819FBA4B40090B7B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA10C6D211EBFECA4CB2A107 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AvatarScrollViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6E884B6919FBA4B40090B7B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5DBEF81AD339AF84F6F8BFC /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AvatarScrollViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6E884B6B19FBA4B40090B7B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AvatarScrollViewDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvatarScrollViewDemo.app/AvatarScrollViewDemo";
+			};
+			name = Debug;
+		};
+		6E884B6C19FBA4B40090B7B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AvatarScrollViewDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvatarScrollViewDemo.app/AvatarScrollViewDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E884B3F19FBA4B40090B7B1 /* Build configuration list for PBXProject "AvatarScrollViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E884B6519FBA4B40090B7B1 /* Debug */,
+				6E884B6619FBA4B40090B7B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E884B6719FBA4B40090B7B1 /* Build configuration list for PBXNativeTarget "AvatarScrollViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E884B6819FBA4B40090B7B1 /* Debug */,
+				6E884B6919FBA4B40090B7B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E884B6A19FBA4B40090B7B1 /* Build configuration list for PBXNativeTarget "AvatarScrollViewDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E884B6B19FBA4B40090B7B1 /* Debug */,
+				6E884B6C19FBA4B40090B7B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E884B3C19FBA4B40090B7B1 /* Project object */;
+}
