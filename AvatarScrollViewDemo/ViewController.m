@@ -8,10 +8,8 @@
 
 #import "ViewController.h"
 #import <iCarousel.h>
-#import <GPUImage.h>
-#import <AMSmoothAlertView.h>
-#import <GPUImage.h>
 #import <POP.h>
+#import <UIImageView+WebCache.h>
 
 @interface ViewController () <iCarouselDataSource, iCarouselDelegate>
 
@@ -27,11 +25,29 @@
        iCarousel *view = [[iCarousel alloc] initWithFrame:self.view.frame];
         view.center = self.view.center;
         view.backgroundColor = [UIColor lightGrayColor];
+        view.tag= 404;
         view.delegate = self;
         view.dataSource = self;
-//        view.pagingEnabled = YES;
-        [self performSelector:@selector(carouselDidScroll:) withObject:view afterDelay:0];
+        view.bounceDistance = 0.8f;
+        view.decelerationRate = 0.8f;
+        [self performSelector:@selector(handleAnimationWithScrollOffset:) withObject:@"0" afterDelay:0];
         view;
+    })];
+    
+    [self.view addSubview:({
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.f, 120.f, self.view.frame.size.width / 2, 50.f)];
+        titleLabel.tag = 306;
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.font = [UIFont systemFontOfSize:36];
+        titleLabel.text = @"0";
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel;
+    })];
+    
+    [self.view addSubview:({
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, 120.f, 80.f, 80.f)];
+        imageView.tag = 1024;
+        imageView;
     })];
 }
 
@@ -40,83 +56,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSArray *)images {
+    return @[@"http://f.hiphotos.baidu.com/image/pic/item/eaf81a4c510fd9f9022a1618262dd42a2834a486.jpg", @"http://pic1a.nipic.com/2008-12-02/200812210427444_2.jpg", @"http://pic11.nipic.com/20101105/2284021_141455259000_2.jpg", @"http://images.yoka.com/pic/cr/2009/1103/1102732392.jpg", @"http://pic5.nipic.com/20100202/3760162_130224079498_2.jpg", @"http://image.tianjimedia.com/uploadImages/2012/229/38/9Q12A8375E44.jpg", @"http://images.yoka.com/pic/star/topic/2011/U288P1T117D370126F2577DT20110726103250.jpg", @"http://fashion.168xiezi.com/attachments/2009/10/19/123837_2009101909135926gt6.jpg", @"http://img1.imgtn.bdimg.com/it/u=121329706,3257609001&fm=23&gp=0.jpg", @"http://www.lady8844.com/h012/h51/img201009271201039.jpg", @"http://news.youth.cn/yl/201301/W020130126470585666343.png", @"http://www.hers.cn/uploadfile/2010/1224/20101224040846670.jpg", @"http://ent.qingdaonews.com/images/attachement/jpg/site1/20140218/201a065afbea146d42ca14.jpg", @"http://img.sdchina.com/news/20110208/c01_50201539-d8c7-4fd5-8899-035351fdceb7_3.jpg", @"http://img2.iqilu.com/ed/11/09/02/31/206_110902164225_1.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/1ad5ad6eddc451dadeaf4f9ab5fd5266d0163261.jpg"];
+}
+
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
-    return 10;
+    return [self images].count;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view {
-    if (view == nil) {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 60.f, 60.f)];
-        view.layer.borderWidth = 2.f;
-        view.layer.cornerRadius = view.frame.size.width / 2;
-        view.layer.masksToBounds = YES;
-    }
+    UIImageView *imageView = [self imageViewAtIndex:index];
     
-    [self addBlurInView:(UIImageView *)view atIndex:index progress:1.2f];
+    if ( !imageView.image) {
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 60.f, 60.f)];
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2;
+        imageView.layer.masksToBounds = YES;
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[self images][index]] placeholderImage:[UIImage imageNamed:@"avatar"]];
+    }
 
-    [self scaleView:view to:CGPointMake(1.f, 1.f)];
-
-    return view;
-}
-
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
-    AMSmoothAlertView *alert = [[AMSmoothAlertView alloc] initDropAlertWithTitle:@"请他吃饭" andText:@"" andCancelButton:NO forAlertType:AlertSuccess];
-    [alert show];
+    [self scaleView:imageView to:CGPointMake(1.f, 1.f)];
+    
+    return imageView;
 }
 
 - (void)carouselDidScroll:(iCarousel *)carousel {
-    NSInteger currentIndex = ceil(carousel.scrollOffset);
- 
-    CGFloat factor = carousel.scrollOffset - currentIndex;
-    
-    CGFloat scaleFactor = .6f;
-    CGFloat baseScale = 1.f;
-    CGFloat blurFactor = 5.0f;
+    [self handleAnimationWithScrollOffset:carousel.scrollOffset];
+}
 
-    NSInteger prePreIndex = currentIndex - 2 < 0 ? [self numberOfItemsInCarousel:nil] + (currentIndex - 2): currentIndex - 2;
-
-    if ([carousel itemViewAtIndex:prePreIndex]) {
-        [self addBlurInView:(UIImageView *)[carousel itemViewAtIndex:prePreIndex] atIndex:prePreIndex progress:blurFactor * 1.f];
-        [self scaleView:(UIImageView *)[carousel itemViewAtIndex:prePreIndex] to:CGPointMake(1.f, 1.f)];
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
+    if (carousel.currentItemIndex == index) {
+        [[[UIAlertView alloc] initWithTitle:@"请我吃饭" message:[NSString stringWithFormat:@"%@", @(index)] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"哦，好吧", nil] show];
     }
-    
-    NSInteger preIndex = currentIndex - 1 < 0 ? [self numberOfItemsInCarousel:nil] + (currentIndex - 1): currentIndex - 1;
+}
 
-    if ([carousel itemViewAtIndex:preIndex]) {
-        [self addBlurInView:(UIImageView *)[carousel itemViewAtIndex:preIndex] atIndex:preIndex progress: blurFactor * (1 + factor)];
-      
-        [self scaleView:[carousel itemViewAtIndex:preIndex] to:CGPointMake(baseScale - scaleFactor * factor, baseScale - scaleFactor * factor)];
-    }
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
+    [(UILabel *)[self.view viewWithTag:306] setText:[NSString stringWithFormat:@"%@", @(carousel.currentItemIndex)]];
+    [(UIImageView *)[self.view viewWithTag:1024] sd_setImageWithURL:[NSURL URLWithString:[self images][carousel.currentItemIndex]] placeholderImage:[UIImage imageNamed:@"avatar"]];
 
-    NSInteger index = currentIndex >= [self numberOfItemsInCarousel:nil] ? 0 : currentIndex;
-
-    [self addBlurInView:(UIImageView *)[carousel itemViewAtIndex:index] atIndex:index progress: -blurFactor * factor];
-
-    [self scaleView:[carousel itemViewAtIndex:index] to:CGPointMake(baseScale + scaleFactor *(factor + 1), baseScale + scaleFactor *(factor + 1))];
-    
-    NSInteger nextIndex =  currentIndex + 1 >= [self numberOfItemsInCarousel:nil] ? currentIndex + 1 - [self numberOfItemsInCarousel:nil] : currentIndex + 1;
-
-    if ([carousel itemViewAtIndex:nextIndex]) {
-        [self addBlurInView:(UIImageView *)[carousel itemViewAtIndex:nextIndex] atIndex:nextIndex progress:blurFactor * 1.f];
-        [self scaleView:(UIImageView *)[carousel itemViewAtIndex:nextIndex] to:CGPointMake(1.f, 1.f)];
-    }
-    
-#ifdef DEBUG
-    [carousel itemViewAtIndex:prePreIndex].layer.borderColor = [UIColor orangeColor].CGColor;
-    [carousel itemViewAtIndex:preIndex].layer.borderColor = [UIColor blueColor].CGColor;
-    [carousel itemViewAtIndex:index].layer.borderColor = [UIColor redColor].CGColor;
-    [carousel itemViewAtIndex:nextIndex].layer.borderColor = [UIColor grayColor].CGColor;
-    NSLog(@"%ld : %ld, %ld, %ld, %ld", (long)currentIndex, (long)prePreIndex, (long)preIndex, (long)index, (long)nextIndex);
-#endif
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
     switch (option) {
         case iCarouselOptionSpacing:
-            value *= 1.6;
+            value *= 1.8f;
             break;
-            case iCarouselOptionWrap:
-            value = 1.f;
+        case iCarouselOptionFadeMin:
+            value = 0.1f;
+            break;
+        case iCarouselOptionFadeMax:
+            value = -.1f;
+            break;
+        case iCarouselOptionFadeRange:
+            value = 1.6f;
             break;
         default:
             break;
@@ -124,16 +115,22 @@
     return value;
 }
 
-- (void)addBlurInView:(UIImageView *)imageView atIndex:(NSInteger)index progress:(CGFloat)progress {
-    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"avatar"]];
-    GPUImageGaussianBlurFilter *stillImageFilter = [[GPUImageGaussianBlurFilter alloc] init];
+- (UIImageView *)imageViewAtIndex:(NSInteger)index {
+    return (UIImageView *)[(iCarousel *)[self.view viewWithTag:404] itemViewAtIndex:index];
+}
+
+- (void)handleAnimationWithScrollOffset:(CGFloat)offset {
+    NSInteger currentIndex = ceil(offset);
     
-    stillImageFilter.blurRadiusInPixels = 2.f * progress;
-    [stillImageSource addTarget:stillImageFilter];
-    [stillImageFilter useNextFrameForImageCapture];
-    [stillImageSource processImage];
+    CGFloat factor = offset - currentIndex;
     
-    imageView.image = [stillImageFilter imageFromCurrentFramebuffer];
+    CGFloat scaleFactor = .6f;
+    CGFloat baseScale = 1.f;
+    
+    [self scaleView:[self imageViewAtIndex:currentIndex - 2] to:CGPointMake(1.f, 1.f)];
+    [self scaleView:[self imageViewAtIndex:currentIndex - 1] to:CGPointMake(baseScale - scaleFactor * factor, baseScale - scaleFactor * factor)];
+    [self scaleView:[self imageViewAtIndex:currentIndex] to:CGPointMake(baseScale + scaleFactor *(factor + 1), baseScale + scaleFactor *(factor + 1))];
+    [self scaleView:[self imageViewAtIndex:currentIndex + 1] to:CGPointMake(1.f, 1.f)];
 }
 
 - (void)scaleView:(UIView *)view to:(CGPoint)point {

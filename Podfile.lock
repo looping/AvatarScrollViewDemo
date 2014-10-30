@@ -1,20 +1,18 @@
 PODS:
-  - AMSmoothAlert (1.1):
-    - GPUImage
-  - GPUImage (0.1.6)
   - iCarousel (1.8.1)
   - pop (1.0.7)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
-  - AMSmoothAlert
-  - GPUImage
   - iCarousel
   - pop
+  - SDWebImage
 
 SPEC CHECKSUMS:
-  AMSmoothAlert: 1b4bf6688b698a606a963c336b5060490f4d3db2
-  GPUImage: cecb0830bb9428f50192042e3c7b53810f51388e
   iCarousel: 5acab560f10dc13da2440c89f35a0ad278b5147d
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.34.4
