@@ -29,17 +29,15 @@
     
     _avatars = @[@"http://f.hiphotos.baidu.com/image/pic/item/eaf81a4c510fd9f9022a1618262dd42a2834a486.jpg", @"http://pic1a.nipic.com/2008-12-02/200812210427444_2.jpg", @"http://pic11.nipic.com/20101105/2284021_141455259000_2.jpg", @"http://images.yoka.com/pic/cr/2009/1103/1102732392.jpg", @"http://pic5.nipic.com/20100202/3760162_130224079498_2.jpg", @"http://image.tianjimedia.com/uploadImages/2012/229/38/9Q12A8375E44.jpg", @"http://images.yoka.com/pic/star/topic/2011/U288P1T117D370126F2577DT20110726103250.jpg", @"http://fashion.168xiezi.com/attachments/2009/10/19/123837_2009101909135926gt6.jpg", @"http://img1.imgtn.bdimg.com/it/u=121329706,3257609001&fm=23&gp=0.jpg", @"http://www.lady8844.com/h012/h51/img201009271201039.jpg", @"http://news.youth.cn/yl/201301/W020130126470585666343.png", @"http://www.hers.cn/uploadfile/2010/1224/20101224040846670.jpg", @"http://ent.qingdaonews.com/images/attachement/jpg/site1/20140218/201a065afbea146d42ca14.jpg", @"http://img.sdchina.com/news/20110208/c01_50201539-d8c7-4fd5-8899-035351fdceb7_3.jpg", @"http://img2.iqilu.com/ed/11/09/02/31/206_110902164225_1.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/1ad5ad6eddc451dadeaf4f9ab5fd5266d0163261.jpg"];
     
-    _dataSource = [_avatars objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(_avatars.count - 1, 1)]];
+    _dataSource = [_avatars objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(_avatars.count, 0)]];
     
     [self.view addSubview:({
         _avatarScrollView = [[iCarousel alloc] initWithFrame:self.view.frame];
         _avatarScrollView.center = self.view.center;
         _avatarScrollView.backgroundColor = [UIColor lightGrayColor];
         _avatarScrollView.delegate = self;
-        _avatarScrollView.dataSource = self;
         _avatarScrollView.bounceDistance = 0.8f;
         _avatarScrollView.decelerationRate = 0.8f;
-        [self performSelector:@selector(handleAnimationWithScrollOffset:) withObject:nil afterDelay:0];
         _avatarScrollView;
     })];
     
@@ -73,13 +71,18 @@
     _updateCount = _dataSource.count - _updateCount;
     
     if (_updateCount) {
-        [_avatarScrollView insertItemAtIndex:0 animated:YES];
+        if ( !_avatarScrollView.dataSource) {
+            _avatarScrollView.dataSource = self;
+            [self performSelector:@selector(handleAnimationWithScrollOffset:) withObject:nil afterDelay:0];
+        } else {
+            [_avatarScrollView insertItemAtIndex:0 animated:YES];
+            [self performSelector:@selector(handleAnimationAfterReload) withObject:nil afterDelay:0];
+        }
     } else {
         [_updateTimer invalidate];
         _updateTimer = nil;
     }
 
-    [self performSelector:@selector(handleAnimationAfterReload) withObject:nil afterDelay:0];
 }
 
 - (void)handleAnimationAfterReload {
@@ -121,9 +124,10 @@
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
-    [(UILabel *)[self.view viewWithTag:306] setText:[NSString stringWithFormat:@"%@", @(carousel.currentItemIndex)]];
-    [(UIImageView *)[self.view viewWithTag:1024] sd_setImageWithURL:[NSURL URLWithString:_dataSource[carousel.currentItemIndex]] placeholderImage:[UIImage imageNamed:@"avatar"]];
-
+    if (_dataSource.count) {
+        [(UILabel *)[self.view viewWithTag:306] setText:[NSString stringWithFormat:@"%@", @(carousel.currentItemIndex)]];
+        [(UIImageView *)[self.view viewWithTag:1024] sd_setImageWithURL:[NSURL URLWithString:_dataSource[carousel.currentItemIndex]] placeholderImage:[UIImage imageNamed:@"avatar"]];
+    }
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
